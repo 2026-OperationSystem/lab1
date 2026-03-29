@@ -38,6 +38,7 @@ OBJS = \
 	icmp.o\
 	tcp.o\
 	http.o\
+
 # Cross-compiling (e.g., on Mac OS X)
 # TOOLPREFIX = i386-jos-elf
 
@@ -190,6 +191,8 @@ UPROGS=\
 	_wc\
 	_zombie\
 	_hello\
+	_testwait\
+	_team1id\
 
 fs.img: mkfs README $(UPROGS)
 	./mkfs fs.img README $(UPROGS)
