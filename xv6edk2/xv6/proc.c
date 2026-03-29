@@ -597,12 +597,11 @@ wait2(int *status)
     // Scan through table looking for exited children.
     havekids = 0;
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-      if(p->xstate != 0)
-        *status = p->xstate;
       if(p->parent != curproc)
         continue;
       havekids = 1;
       if(p->state == ZOMBIE){
+        *status = p->xstate;
         // Found one.
         pid = p->pid;
         kfree(p->kstack);
