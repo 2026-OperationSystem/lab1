@@ -105,7 +105,7 @@ int
 sys_wait2(void)
 {
   int *pid;
-  if(argint(0,(int*)&pid)< 0)
+  if(argptr(0,(char**)&pid,sizeof(int)))
     return -1;
   return wait2(pid);
 }
