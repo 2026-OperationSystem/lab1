@@ -190,6 +190,7 @@ UPROGS=\
 	_wc\
 	_zombie\
 	_testwait\
+	_team1id\
 	_hello\
 
 fs.img: mkfs README $(UPROGS)
