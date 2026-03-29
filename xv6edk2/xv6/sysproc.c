@@ -89,3 +89,23 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int
+sys_exit2(void)
+{
+  int pid;
+  if(argint(0,&pid) < 0){ // 예외처리
+    return -1;
+  }
+  exit2(pid);
+  return 0;  // not reached
+}
+
+int
+sys_wait2(void)
+{
+  int *pid;
+  if(argint(0,(int*)&pid)< 0)
+    return -1;
+  return wait2(pid);
+}
